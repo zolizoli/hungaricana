@@ -1,0 +1,2 @@
+etc/ner.jar filter=lfs diff=lfs merge=lfs -text
+etc/tika-app-1.19.1.jar filter=lfs diff=lfs merge=lfs -text
