@@ -8,7 +8,7 @@ from concurrent.futures import ThreadPoolExecutor
 #####              selenium functions getting our data                    #####
 ###############################################################################
 opts = Options()
-prefs = {'download.default_directory': '/home/developer/PycharmProjects/tika/data/raw'}
+prefs = {'download.default_directory': '/home/developer/PycharmProjects/hungaricana/data/raw'}
 opts.add_experimental_option('prefs', prefs)
 
 
