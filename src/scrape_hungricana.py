@@ -56,20 +56,29 @@ def generate_urls(book):
 for book in books:
     generate_urls(book)
 
+with open('data/logs/crawled.txt', 'r') as f:
+    crawled = []
+    for l in f:
+        crawled.append(l.strip())
+
+tocrawl = [e for e in tocrawl if e not in crawled]
+of = open('data/logs/crawled.txt', 'a')
+
 
 def download_page(page):
     try:
         browser, button = init_browser(page)
+        of.write(page + '\n')
         button.click()
         time.sleep(1)
         ok = browser.find_element_by_name('ok')
         ok.click()
-        time.sleep(2)
+        time.sleep(4)
         browser.quit()
     except Exception as e:
         print(e)
         pass
 
 
-with ThreadPoolExecutor(max_workers=30) as executor:
+with ThreadPoolExecutor(max_workers=15) as executor:
     executor.map(download_page, tocrawl)
