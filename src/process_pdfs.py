@@ -20,5 +20,5 @@ def process_pdf(raw_text):
         f.write(plain_text)
 
 
-with ThreadPoolExecutor(max_workers=40) as executor:
+with ThreadPoolExecutor(max_workers=10) as executor:
     executor.map(process_pdf, raw_texts)
